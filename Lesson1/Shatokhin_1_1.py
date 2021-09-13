@@ -2,8 +2,29 @@
 # до минуты: <s> сек; до часа: <m> мин <s> сек; до суток: <h> час <m> мин <s> сек;
 # * в остальных случаях: <d> дн <h> час <m> мин <s> сек.
 
-def plus(a,b):
-    return a + b
+DAY = 86400
+HOUR = 3600
+MINUTE = 60
 
-if __name__ == '__main__':
-    print(plus(2, 2))
+duration = int(input('Введите продолжительность '))
+
+if duration > DAY:
+    d = duration // DAY
+    h = (duration - d * DAY) // HOUR
+    m = (duration - (d * DAY + h * HOUR)) // MINUTE
+    s = duration - (d * DAY + h * HOUR + m * MINUTE)
+    my_str = f'{d} дн {h} час {m} мин {s} сек'
+elif DAY > duration > HOUR:
+    h = duration // HOUR
+    m = (duration - h * HOUR) // MINUTE
+    s = duration - (h * HOUR + m * MINUTE)
+    my_str = f'{h} час {m} мин {s} сек'
+elif HOUR > duration > MINUTE:
+    m = duration // MINUTE
+    s = duration - (m * MINUTE)
+    my_str = f'{m} мин {s} сек'
+else:
+    my_str = f'{duration} сек'
+
+print(f'duration {duration}')
+print(my_str)
