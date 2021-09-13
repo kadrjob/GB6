@@ -10,7 +10,7 @@ while idx <= 1000:
         nums.append(idx ** 3)
     idx += 1
 
-total_sum = 0             # общая сумма подходящих чисел
+total_sum = 0  # общая сумма подходящих чисел
 for elem in nums:
 
     _ = elem
@@ -24,7 +24,7 @@ for elem in nums:
 print(f'Общая сумма чисел {total_sum}')
 
 # увеличиваем числа списка на 17
-total_sum17 = 0             # общая сумма подходящих чисел
+total_sum17 = 0  # общая сумма подходящих чисел
 for elem in nums:
     elem += 17
 
@@ -40,11 +40,12 @@ print(f'Общая сумма чисел +17 {total_sum17}')
 
 # звездочка вообще без создания списка
 print('--- Звездочка ---')
-total_sum = 0   # для неувеличенных чисел
+total_sum = 0  # для неувеличенных чисел
 total_sum17 = 0  # для увеличенных на 17
 
 for elem in range(1, 1001):
-    if elem % 2 != 0: continue
+    if elem % 2 != 0:
+        continue
 
     elem_pow = elem ** 3
     elem_pow17 = elem ** 3 + 17
@@ -57,7 +58,8 @@ for elem in range(1, 1001):
         _ //= 10  # уменьшаем число на разряд
 
     # если сумма цифр числа делится на 7 без остатка - добавляем число
-    if elem_sum % 7 == 0: total_sum += elem_pow
+    if elem_sum % 7 == 0:
+        total_sum += elem_pow
 
     _ = elem_pow17
     elem_sum17 = 0
@@ -66,7 +68,8 @@ for elem in range(1, 1001):
         elem_sum17 += next_digit  # получаем сумму
         _ //= 10  # уменьшаем число на разряд
 
-    if elem_sum17 % 7 == 0: total_sum17 += elem_pow17
+    if elem_sum17 % 7 == 0:
+        total_sum17 += elem_pow17
 
 print(f'*Общая сумма чисел {total_sum}')
 print(f'*Общая сумма чисел +17 {total_sum17}')
