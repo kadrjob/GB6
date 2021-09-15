@@ -6,7 +6,7 @@
 nums = []
 idx = 1
 while idx <= 1000:
-    if (idx % 2) == 0:
+    if (idx % 2) != 0:
         nums.append(idx ** 3)
     idx += 1
 
@@ -44,7 +44,7 @@ total_sum = 0  # для неувеличенных чисел
 total_sum17 = 0  # для увеличенных на 17
 
 for elem in range(1, 1001):
-    if elem % 2 != 0:
+    if elem % 2 == 0:
         continue
 
     elem_pow = elem ** 3
